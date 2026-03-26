@@ -1,0 +1,76 @@
+INSURANCE CLAIM REPORT
+Claim Reference: CLM-2024-08471
+Date of Report: 2024-11-15
+Policy Number: AUTO-77821-TX
+
+CLAIMANT INFORMATION
+Claimant Name: Marcus J. Thornton
+Date of Birth: 1985-04-22
+Contact Phone: (512) 555-0194
+Contact Email: m.thornton@email.com
+Address: 4312 Riverside Drive, Austin, TX 78704
+
+INSURED VEHICLE
+Year / Make / Model: 2021 Toyota Camry SE
+VIN: 4T1B11HK9MU512345
+License Plate: TX-HGT 4892
+Odometer at Loss: 38,450 miles
+
+INCIDENT DETAILS
+Date of Incident: 2024-11-03
+Time of Incident: Approximately 07:45 AM
+Location: Intersection of Congress Ave and E 6th St, Austin, TX
+Weather Conditions: Light rain, reduced visibility
+
+DESCRIPTION OF INCIDENT
+On the morning of November 3, 2024, the claimant was traveling northbound on Congress
+Avenue in the right-hand lane approaching the signalised intersection at E 6th Street.
+The traffic signal was green. A third-party vehicle (a 2019 Ford F-150, plate TX-JKL 2231)
+operated by Ms. Diana Reyes ran the red light from E 6th Street westbound and struck
+the claimant's vehicle on the front-right quarter panel.
+
+The impact caused the airbags in the Camry to deploy. The claimant reports neck stiffness
+and a minor laceration on the right forearm sustained from the airbag deployment.
+Emergency services (Austin EMS) attended the scene. The claimant was transported to
+St. David's Medical Center for evaluation; discharged same day after imaging confirmed
+no fractures.
+
+THIRD-PARTY INFORMATION
+At-Fault Driver: Diana Reyes
+Address: 801 W 5th St, Austin, TX 78703
+Insurer: Lone Star Auto Insurance, Policy LNS-2241009
+
+WITNESSES
+1. Officer P. Garza – Austin PD, Badge #3124 (filed incident report #ATX-2024-11-0398)
+2. Kevin M. Sullivan – pedestrian bystander, contact on file
+
+VEHICLE DAMAGE ASSESSMENT
+Front bumper assembly: total replacement required
+Right front fender: replace
+Hood: replace (impact crumple)
+Airbag module: replace (deployed)
+Coolant system: possible radiator damage – pending mechanic inspection
+
+Estimated repair cost (preliminary): $14,200
+Rental vehicle required: Yes (estimated 12 days at $58/day = $696)
+
+MEDICAL EXPENSES
+St. David's Emergency Dept: $3,850
+Radiology (X-ray + CT): $1,120
+Follow-up physiotherapy (3 sessions estimated): $480
+Total Medical Claimed: $5,450
+
+TOTAL CLAIMED AMOUNT: $20,346
+
+SUPPORTING DOCUMENTS ATTACHED
+- Austin PD Incident Report #ATX-2024-11-0398
+- Medical discharge summary (St. David's Medical Center, 2024-11-03)
+- Preliminary repair estimate (Capital City Auto Body, 2024-11-07)
+- Photographs of vehicle damage (14 images)
+- Rental agreement (Enterprise Rent-A-Car)
+
+CLAIMANT DECLARATION
+I, Marcus J. Thornton, declare that the information provided in this claim is true and
+accurate to the best of my knowledge.
+
+Signature: _________________________ Date: 2024-11-15

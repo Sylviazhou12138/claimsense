@@ -1,0 +1,93 @@
+HEALTH INSURANCE CLAIM FORM
+Claim Reference: CLM-2024-MED-17682
+Submission Date: 2024-12-05
+Group Policy Number: GRP-HEALTH-88421
+Member ID: MBR-0041792
+
+MEMBER / PATIENT INFORMATION
+Patient Name: James Okonkwo
+Date of Birth: 1979-09-14
+Relationship to Policyholder: Self
+Member Address: 2204 Biltmore Dr, Atlanta, GA 30318
+Contact Phone: (404) 555-0311
+Employer / Group: Nexagen Technologies Inc.
+
+ATTENDING PHYSICIAN
+Physician Name: Dr. Sandra Whitmore, MD
+Specialty: General Surgery
+NPI: 1234567890
+Hospital Affiliation: Emory University Hospital
+
+DIAGNOSIS & PROCEDURE
+Primary Diagnosis: Acute appendicitis (ICD-10: K35.80)
+Secondary Diagnosis: None
+Procedure Performed: Laparoscopic appendectomy (CPT: 44950)
+Date of Surgery: 2024-11-18
+Date of Admission: 2024-11-17
+Date of Discharge: 2024-11-20
+Length of Stay: 3 days
+
+CLINICAL SUMMARY
+Patient James Okonkwo presented to the Emory University Hospital Emergency Department
+on November 17, 2024, at 21:45 with acute right lower quadrant abdominal pain, nausea,
+and fever (38.9°C). Physical examination and CT imaging confirmed acute appendicitis
+without perforation.
+
+The patient was admitted for emergency laparoscopic appendectomy performed on the
+morning of November 18, 2024 under general anaesthesia. The procedure was completed
+without complications. The patient recovered in the surgical ward for two nights and
+was discharged on November 20 with oral antibiotics and activity restrictions.
+
+No complications, no readmission.
+
+ITEMISED CHARGES
+Emergency Department evaluation (2024-11-17):          $2,840.00
+CT Abdomen/Pelvis with contrast (2024-11-17):          $3,200.00
+Pre-operative labs and blood work:                     $  780.00
+Operating room facility fee (2024-11-18):              $8,400.00
+Surgeon fee – Dr. Whitmore (CPT 44950):                $4,100.00
+Anaesthesia services – Dr. Kevin Park, MD:             $2,200.00
+Post-operative recovery room (2 hrs):                  $1,050.00
+Inpatient room and board (2 nights, semi-private):     $4,600.00
+Nursing and ancillary services:                        $1,340.00
+Pharmacy (IV antibiotics, pain management):            $  920.00
+Medical supplies (surgical kit, drapes):               $  430.00
+Discharge medications (oral antibiotics, 10-day):      $  185.00
+                                                      -----------
+GROSS CHARGES:                                        $30,045.00
+
+INSURANCE ADJUSTMENTS
+In-network contractual adjustment:                   ($6,210.00)
+ADJUSTED CLAIM TOTAL:                                 $23,835.00
+
+MEMBER RESPONSIBILITY (ESTIMATED)
+Annual deductible (remaining at date of service):      $1,200.00
+Coinsurance (20% of $22,635):                         $4,527.00
+Member total responsibility:                          $5,727.00
+
+AMOUNT BILLED TO INSURER:                            $18,108.00
+
+AUTHORISATION & REFERRAL
+Pre-authorisation was obtained for the surgical procedure.
+Pre-auth Reference: PA-2024-1118-44950
+
+SUPPORTING DOCUMENTS
+- Operative report (Dr. Whitmore, 2024-11-18)
+- CT imaging report (Radiology, 2024-11-17)
+- Itemised hospital bill (Emory University Hospital)
+- Pharmacy receipt (CVS, 2024-11-20)
+- Pre-authorisation confirmation letter
+
+PROVIDER ATTESTATION
+I certify that the services described above were medically necessary and were
+personally rendered by me or under my direct supervision.
+
+Dr. Sandra Whitmore, MD                Date: 2024-12-03
+Signature: _________________________
+
+MEMBER CERTIFICATION
+I authorise release of medical information necessary to process this claim and
+payment of benefits to the provider.
+
+James Okonkwo                          Date: 2024-12-05
+Signature: _________________________
