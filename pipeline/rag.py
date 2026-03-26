@@ -1,14 +1,15 @@
 """
 RAG (Retrieval-Augmented Generation) module.
-Manages a local ChromaDB collection of historical claim cases.
-On first run, seeds the collection with 5 synthetic cases.
+Manages a ChromaDB collection of historical claim cases.
+Uses an in-memory (ephemeral) client so it works on Hugging Face Spaces
+and other stateless environments without a persistent filesystem.
+Seeds the collection with 5 synthetic cases on every startup.
 At query time, embeds the current claim via Gemini and retrieves the 2 closest matches.
 """
 
 from __future__ import annotations
 
 import os
-from pathlib import Path
 from typing import Any
 
 import chromadb
@@ -18,7 +19,9 @@ from google import genai
 
 from models.schemas import SimilarCase
 
-_DB_PATH = Path(__file__).parent.parent / "data" / "chroma_db"
+# Module-level singleton so the collection is seeded only once per process
+_collection: chromadb.Collection | None = None
+
 _COLLECTION_NAME = "claim_history"
 _EMBED_MODEL = "gemini-embedding-001"  # Gemini embedding model
 _TOP_K = 2
@@ -101,38 +104,30 @@ def _get_embed_fn() -> GeminiEmbeddingFunction:
     return GeminiEmbeddingFunction(api_key=api_key)
 
 
-def _get_collection(persist: bool = True) -> chromadb.Collection:
-    """Return (and create if needed) the claim_history ChromaDB collection."""
-    if persist:
-        _DB_PATH.mkdir(parents=True, exist_ok=True)
-        client = chromadb.PersistentClient(path=str(_DB_PATH))
-    else:
-        client = chromadb.EphemeralClient()
+def _get_or_init_collection() -> chromadb.Collection:
+    """
+    Return the singleton in-memory collection, seeding it on first call.
+    Uses EphemeralClient so no filesystem access is required (works on HF Spaces).
+    """
+    global _collection
+    if _collection is not None:
+        return _collection
 
+    client = chromadb.EphemeralClient()
     embed_fn = _get_embed_fn()
     collection = client.get_or_create_collection(
         name=_COLLECTION_NAME,
         embedding_function=embed_fn,
         metadata={"hnsw:space": "cosine"},
     )
-    return collection
-
-
-def seed_collection(persist: bool = True) -> None:
-    """
-    Populate the collection with seed cases if not already present.
-    Safe to call multiple times (idempotent).
-    """
-    collection = _get_collection(persist=persist)
-    existing_ids = set(collection.get(ids=[c["id"] for c in _SEED_CASES])["ids"])
-    new_cases = [c for c in _SEED_CASES if c["id"] not in existing_ids]
-    if not new_cases:
-        return
+    # Seed with historical cases
     collection.add(
-        ids=[c["id"] for c in new_cases],
-        documents=[c["text"] for c in new_cases],
-        metadatas=[c["metadata"] for c in new_cases],
+        ids=[c["id"] for c in _SEED_CASES],
+        documents=[c["text"] for c in _SEED_CASES],
+        metadatas=[c["metadata"] for c in _SEED_CASES],
     )
+    _collection = collection
+    return _collection
 
 
 # ── Public API ────────────────────────────────────────────────────────────────
@@ -148,8 +143,7 @@ def retrieve_similar(query_text: str, top_k: int = _TOP_K) -> list[SimilarCase]:
     Returns:
         List of SimilarCase objects sorted by descending similarity.
     """
-    collection = _get_collection()
-    seed_collection()  # ensure seed data exists
+    collection = _get_or_init_collection()
 
     results = collection.query(
         query_texts=[query_text],
@@ -170,8 +164,8 @@ def retrieve_similar(query_text: str, top_k: int = _TOP_K) -> list[SimilarCase]:
 
 
 def add_case(case_id: str, text: str, metadata: dict[str, Any] | None = None) -> None:
-    """Add a new case to the persistent collection (e.g. after a claim is resolved)."""
-    collection = _get_collection()
+    """Add a new case to the in-memory collection for the current session."""
+    collection = _get_or_init_collection()
     collection.add(
         ids=[case_id],
         documents=[text],

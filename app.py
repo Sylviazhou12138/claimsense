@@ -199,9 +199,18 @@ def main() -> None:
     parser.add_argument("--share", action="store_true")
     args = parser.parse_args()
 
+    # On Hugging Face Spaces the SPACE_ID env var is set; bind to 0.0.0.0 so
+    # the internal proxy can reach the app.
+    on_spaces = bool(_os.environ.get("SPACE_ID"))
+
     demo_text = _load_demo_text() if args.demo else ""
     ui = _build_ui(demo_text=demo_text)
-    ui.launch(server_port=args.port, share=args.share, theme=gr.themes.Soft())
+    ui.launch(
+        server_name="0.0.0.0" if on_spaces else "127.0.0.1",
+        server_port=args.port,
+        share=args.share,
+        theme=gr.themes.Soft(),
+    )
 
 
 if __name__ == "__main__":

@@ -1,10 +1,21 @@
+---
+title: ClaimSense
+emoji: 📋
+colorFrom: blue
+colorTo: indigo
+sdk: gradio
+sdk_version: "5.0.0"
+app_file: app.py
+pinned: false
+---
+
 # ClaimSense — AI-Powered Insurance Claim Triage
 
 ClaimSense ingests an insurance claim document (PDF or plain text) and produces a
 structured **ClaimBrief**: a risk-scored, entity-enriched, compliance-checked review
 package ready for the adjuster.
 
-## Quick Start
+## Quick Start (local)
 
 ```bash
 # 1. Install dependencies
@@ -12,7 +23,7 @@ pip install -r requirements.txt
 
 # 2. Configure API key
 cp .env.example .env
-# Edit .env and set OPENAI_API_KEY
+# Edit .env and set GEMINI_API_KEY
 
 # 3. Launch the Gradio UI
 python app.py
@@ -32,15 +43,15 @@ Document (PDF / text)
   pipeline/ingest.py       → list[DocumentChunk]
         │
         ▼
-  pipeline/extract.py      → ExtractedEntities      (GPT-4o structured output)
+  pipeline/extract.py      → ExtractedEntities      (Gemini structured output)
         │
-        ├──▶ pipeline/classify.py   → ClassificationResult  (GPT-4o structured output)
+        ├──▶ pipeline/classify.py   → ClassificationResult  (Gemini structured output)
         │
         ├──▶ pipeline/compliance.py → ComplianceResult      (rule-based, no LLM)
         │
-        ├──▶ pipeline/rag.py        → list[SimilarCase]     (ChromaDB + text-embedding-3-small)
+        ├──▶ pipeline/rag.py        → list[SimilarCase]     (ChromaDB + gemini-embedding-001)
         │
-        └──▶ pipeline/summarize.py  → ClaimBrief            (GPT-4o, free-text brief)
+        └──▶ pipeline/summarize.py  → ClaimBrief            (Gemini, free-text brief)
 ```
 
 ## Output Structure (`ClaimBrief`)
@@ -66,16 +77,15 @@ claimsense/
 ├── app.py                  # Gradio entry point
 ├── pipeline/
 │   ├── ingest.py           # PDF/text parsing + chunking
-│   ├── extract.py          # GPT-4o entity extraction
+│   ├── extract.py          # Gemini entity extraction
 │   ├── classify.py         # Risk scoring + claim classification
 │   ├── compliance.py       # Missing-field rule checks
-│   ├── rag.py              # ChromaDB retrieval (seeded with 5 cases)
+│   ├── rag.py              # In-memory ChromaDB retrieval (seeded with 5 cases)
 │   └── summarize.py        # Adjuster brief generation
 ├── models/
 │   └── schemas.py          # All Pydantic models
 ├── data/
-│   ├── sample_claims/      # 3 synthetic demo claims (.txt)
-│   └── chroma_db/          # Auto-created on first run
+│   └── sample_claims/      # 3 synthetic demo claims (.txt)
 ├── .env.example
 └── requirements.txt
 ```
@@ -84,7 +94,9 @@ claimsense/
 
 | Variable | Required | Description |
 |---|---|---|
-| `OPENAI_API_KEY` | Yes | Your OpenAI API key |
+| `GEMINI_API_KEY` | Yes | Your Google Gemini API key |
+
+On Hugging Face Spaces, set this as a **Secret** in the Space settings (Settings → Variables and secrets).
 
 ## Calling Pipeline Modules Independently
 
@@ -95,6 +107,6 @@ from pipeline.ingest import ingest, full_text
 from pipeline.extract import extract_entities
 from pipeline.classify import classify_claim
 from pipeline.compliance import check_compliance
-from pipeline.rag import retrieve_similar, seed_collection
+from pipeline.rag import retrieve_similar
 from pipeline.summarize import build_claim_brief
 ```
