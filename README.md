@@ -10,6 +10,8 @@ pinned: false
 
 # ClaimSense — AI-Powered Insurance Claim Triage
 
+[![Open in Spaces](https://huggingface.co/datasets/huggingface/badges/resolve/main/open-in-hf-spaces-sm.svg)](https://huggingface.co/spaces/Sylvia12138/claimsense)
+
 ClaimSense ingests an insurance claim document (PDF or plain text) and produces a
 structured **ClaimBrief**: a risk-scored, entity-enriched, compliance-checked review
 package ready for the adjuster.
