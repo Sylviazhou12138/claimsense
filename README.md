@@ -2,9 +2,19 @@
 
 [![Open in Spaces](https://huggingface.co/datasets/huggingface/badges/resolve/main/open-in-hf-spaces-sm.svg)](https://huggingface.co/spaces/Sylvia12138/claimsense)
 
-ClaimSense ingests an insurance claim document (PDF or plain text) and produces a
-structured **ClaimBrief**: a risk-scored, entity-enriched, compliance-checked review
-package ready for the adjuster.
+ClaimSense is an AI-powered insurance claim triage tool that helps adjusters process claims faster and more consistently. Upload a claim document (PDF or plain text) and ClaimSense instantly produces a structured **ClaimBrief**: a risk-scored, entity-enriched, compliance-checked review package that surfaces the information that matters most.
+
+## Why ClaimSense
+
+Insurance adjusters typically spend significant time manually reading claim documents, identifying key entities (parties, dates, amounts), checking for missing information, and assessing risk — before they can even begin evaluating the claim itself. ClaimSense automates this triage layer so adjusters can focus on decisions, not data extraction.
+
+## Use Cases
+
+- **High-volume claim intake**: Quickly triage large batches of incoming claims by risk level (`Routine` / `Needs Review` / `Escalate`), prioritizing adjuster attention where it matters most.
+- **Compliance screening**: Automatically flag claims with missing required fields (e.g. no incident date, no policy number) before they enter the review queue.
+- **Similar case retrieval**: Surface historically similar claims using semantic search, helping adjusters apply consistent precedent across cases.
+- **Adjuster onboarding**: Give new adjusters an instant structured summary of any claim, reducing ramp-up time and review errors.
+- **Audit and documentation**: Generate a standardized ClaimBrief for every claim processed, creating a consistent audit trail.
 
 ## Quick Start (local)
 
