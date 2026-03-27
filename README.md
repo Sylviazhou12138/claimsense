@@ -1,13 +1,3 @@
----
-title: ClaimSense
-emoji: 📋
-colorFrom: blue
-colorTo: indigo
-sdk: docker
-app_port: 7860
-pinned: false
----
-
 # ClaimSense — AI-Powered Insurance Claim Triage
 
 [![Open in Spaces](https://huggingface.co/datasets/huggingface/badges/resolve/main/open-in-hf-spaces-sm.svg)](https://huggingface.co/spaces/Sylvia12138/claimsense)
